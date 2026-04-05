@@ -1,0 +1,93 @@
+<div
+  class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300
+         border border-creamy-gray hover:border-dark-teal
+         overflow-hidden group cursor-pointer">
+
+  <!-- 🖼️ Image -->
+  <div class="relative overflow-hidden">
+    <img
+      [src]="trip?.coverImage || 'https://via.placeholder.com/400'"
+      alt="trip"
+      class="w-full h-52 object-cover transition duration-300 group-hover:scale-105">
+
+    <!-- Discount -->
+    <div *ngIf="trip?.discount"
+         class="absolute top-3 right-3 bg-burnt-orange text-white text-xs px-3 py-1 rounded-full font-bold">
+      -{{ trip.discount }}%
+    </div>
+  </div>
+
+  <!-- 📄 Content -->
+  <div class="p-4">
+
+    <!-- Title -->
+    <h3 class="text-dark-gray font-bold text-lg mb-3">
+      {{ trip?.title }}
+    </h3>
+
+    <!-- 📊 Info Row -->
+    <div class="flex items-center justify-between text-sm mb-4">
+
+      <!-- City -->
+      <div class="flex items-center gap-1 text-olive-green">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>{{ trip?.city }}</span>
+      </div>
+
+      <!-- Duration -->
+      <div class="flex items-center gap-1 text-sand-brown">
+        <i class="far fa-clock"></i>
+        <span>{{ trip?.durationInDays }} Days</span>
+      </div>
+
+      <!-- Rating -->
+      <div class="flex items-center gap-1 text-gold-highlight">
+        <i class="fas fa-star"></i>
+        <span>{{ trip?.rating || 4.5 }}</span>
+      </div>
+
+    </div>
+
+    <!-- 💰 Price -->
+    <div class="flex items-center gap-3 mb-4">
+
+      <!-- New Price -->
+      <span class="text-dark-teal font-bold text-xl">
+        {{ trip?.price }} EGP
+      </span>
+
+      <!-- Old Price -->
+      <span *ngIf="trip?.oldPrice"
+            class="text-gray-400 line-through text-sm">
+        {{ trip.oldPrice }} EGP
+      </span>
+
+    </div>
+
+    <!-- 🔘 Buttons -->
+    <div class="flex gap-3">
+
+      <!-- Book -->
+ <button
+  class="flex-1cursor-pointer flex-1 bg-light-gold hover:bg-burnt-orange hover:text-white text-burnt-orange border-burnt-orange py-2 rounded-lg font-semibold
+         transition-transform transition-shadow duration-300
+         cursor-pointer flex items-center justify-center gap-2
+         hover:scale-105 hover:shadow-lg hover:bg-opacity-90">
+
+  <i class="fas fa-calendar-check transition-transform duration-300 hover:translate-x-1"></i>
+  Book
+</button>
+
+      <!-- Details -->
+      <button
+        (click)="goToDetails()"
+        class="flex-1 border border-dark-teal text-dark-teal py-2 rounded-lg font-semibold
+               hover:bg-dark-teal hover:text-white transition cursor-pointer flex items-center justify-center gap-2">
+        <i class="fas fa-info-circle"></i>
+        Details
+      </button>
+
+    </div>
+
+  </div>
+</div>

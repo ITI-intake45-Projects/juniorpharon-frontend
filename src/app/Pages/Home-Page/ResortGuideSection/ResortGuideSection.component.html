@@ -1,0 +1,41 @@
+<section class="py-16 px-4 bg-beige ">
+  <div class="max-w-7xl mx-auto">
+    <!-- Main Title & Description -->
+    <h2 class="text-3xl font-bold text-burnt-orange mb-4 text-center">
+      {{ title }}
+    </h2>
+    <p class="text-dark-gray max-w-3xl mx-auto mb-12 text-center">
+      {{ description }}
+    </p>
+
+    <!-- Image + Side Text -->
+    <div class="flex flex-col md:flex-row items-center gap-8 mb-12">
+      <img
+        [src]="image"
+        alt="{{ sideTitle }}"
+        class="rounded-xl w-full h-96 md:w-1/2 object-cover"
+      />
+
+      <div class="md:w-1/2">
+        <h3 class="text-burnt-orange font-semibold text-xl mb-2">
+          {{ sideTitle }}
+        </h3>
+        <p class="text-dark-gray mb-4">
+          {{ sideText }}
+        </p>
+        <button
+          class="cursor-pointer bg-burnt-orange text-white px-6 py-2 rounded-lg hover:opacity-90 transition"
+        >
+          Read More
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+</section>

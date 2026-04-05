@@ -1,41 +1,107 @@
 <!-- Top Bar -->
-<div class="bg-sand-brown text-white text-sm">
-  <div class="max-w-7xl mx-auto flex justify-between px-4 py-1">
-    <span><i class="fa-solid fa-phone"></i> 123 4567 908</span>
+<div class="bg-sand-brown text-white text-lg relative h-16 text-center">
+  <div class="max-w-7xl mx-auto flex justify-between items-center gap-8 h-full px-4">
+    <span>
+      <a href="https://wa.me/201113306601" target="_blank" class="hover:underline flex items-center gap-2">
+        <i class="fa-brands fa-whatsapp"></i> +20 111 330 6601
+      </a>
+    </span>
     <span>Book Resort Credit Offer</span>
-    <span><i class="fa-solid fa-envelope"></i> ass-salaam&#64;gmail.com</span>
-    <span class="cursor-pointer hover:underline">Register For Free</span>
+    <span><i class="fa-solid fa-envelope"></i> juniorpharon&#64;gmail.com</span>
+    <a routerLink="/auth/register" class="cursor-pointer hover:underline">
+      Register For Free
+    </a>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden z-10">
+    <div class="flex w-full">
+      <div *ngFor="let i of [].constructor(50)" class="w-12 h-8 bg-creamy-gray rounded-full -mb-6"></div>
+    </div>
   </div>
 </div>
 
 <!-- Main Navbar -->
 <nav class="bg-creamy-gray shadow-sm">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-
+  <div class="w-full flex items-center justify-between px-6 py-4">
     <!-- Logo -->
-    <div class="text-xl font-semibold text-sand-brown">
-      As-salaam
-    </div>
+    <div class="text-xl font-semibold text-sand-brown">As-salaam</div>
 
     <!-- Links -->
     <ul class="hidden md:flex space-x-8 text-dark-gray font-medium relative">
-  <li class="relative cursor-pointer">
-    Home
-    <!-- SVG المقوس -->
-    <svg class="absolute left-0 bottom-[-4px] w-full h-2 " viewBox="0 0 100 10" preserveAspectRatio="none">
-      <path d="M0 10 Q50 0 100 10" stroke="#D66A2E" stroke-width="3" fill="transparent" />
-    </svg>
-  </li>
-  <li class="hover:text-burnt-orange cursor-pointer">Location</li>
-  <li class="hover:text-burnt-orange cursor-pointer">Offers</li>
-  <li class="hover:text-burnt-orange cursor-pointer">Meetings & Events</li>
-  <li class="hover:text-burnt-orange cursor-pointer">Credit Cards</li>
-</ul>
+      <!-- Home -->
+      <li class="relative group">
+        <a routerLink="/" routerLinkActive="active-link text-burnt-orange"
+           [routerLinkActiveOptions]="{ exact: true }"
+           class="cursor-pointer hover:text-burnt-orange transition-colors duration-300">
+          Home
+        </a>
+        <svg class="absolute left-0 bottom-[-6px] w-full h-2 opacity-0 transition-opacity duration-300"
+             viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 10 Q50 0 100 10" stroke="#D66A2E" stroke-width="3" fill="transparent"/>
+        </svg>
+      </li>
+
+      <!-- Trips -->
+      <li class="relative group">
+        <a routerLink="/trips" routerLinkActive="active-link text-burnt-orange"
+           class="cursor-pointer hover:text-burnt-orange transition-colors duration-300">
+          Trips
+        </a>
+        <svg class="absolute left-0 bottom-[-6px] w-full h-2 opacity-0 transition-opacity duration-300"
+             viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 10 Q50 0 100 10" stroke="#D66A2E" stroke-width="3" fill="transparent"/>
+        </svg>
+      </li>
+
+      <!-- Offers -->
+      <li class="relative group">
+        <a routerLink="/offers" routerLinkActive="active-link text-burnt-orange"
+           class="cursor-pointer hover:text-burnt-orange transition-colors duration-300">
+          Offers
+        </a>
+        <svg class="absolute left-0 bottom-[-6px] w-full h-2 opacity-0 transition-opacity duration-300"
+             viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 10 Q50 0 100 10" stroke="#D66A2E" stroke-width="3" fill="transparent"/>
+        </svg>
+      </li>
+
+      <!-- Meetings & Events -->
+      <li class="relative group">
+        <a routerLink="/meetings" routerLinkActive="active-link text-burnt-orange"
+           class="cursor-pointer hover:text-burnt-orange transition-colors duration-300">
+          Meetings & Events
+        </a>
+        <svg class="absolute left-0 bottom-[-6px] w-full h-2 opacity-0 transition-opacity duration-300"
+             viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 10 Q50 0 100 10" stroke="#D66A2E" stroke-width="3" fill="transparent"/>
+        </svg>
+      </li>
+
+      <!-- Credit Cards -->
+      <li class="relative group">
+        <a routerLink="/credit-cards" routerLinkActive="active-link text-burnt-orange"
+           class="cursor-pointer hover:text-burnt-orange transition-colors duration-300">
+          Credit Cards
+        </a>
+        <svg class="absolute left-0 bottom-[-6px] w-full h-2 opacity-0 transition-opacity duration-300"
+             viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 10 Q50 0 100 10" stroke="#D66A2E" stroke-width="3" fill="transparent"/>
+        </svg>
+      </li>
+    </ul>
 
     <!-- Button -->
-    <button class="bg-burnt-orange text-white px-5 py-2 rounded-md hover:opacity-90 transition">
+    <button class="border border-dark-teal cursor-pointer text-dark-teal px-5 py-2 rounded-md hover:bg-burnt-orange hover:text-white transition">
       Book Now
     </button>
-
   </div>
 </nav>
+
+<!-- Tailwind Classes for Active State -->
+<!-- <style>
+  /* يظهر الخط عند hover أو active */
+  li.group:hover svg,
+  li a.active-link + svg {
+    opacity: 1;
+  }
+</style> -->

@@ -1,3 +1,116 @@
-<p>
-  hero-section works!
-</p>
+<section class="bg-beige py-10 px-4">
+  <div class="max-w-7xl mx-auto text-center">
+    <!-- Top Bar -->
+    <div class="flex justify-between items-center mb-6">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-12 h-12 bg-light-gold rounded-full"></div>
+        <span class="font-semibold text-sand-brown"> As-salaam Luxurious </span>
+      </div>
+      <!-- Title -->
+      <h1
+        class="text-4xl md:text-5xl font-bold text-burnt-orange leading-tight"
+      >
+        Luxury and Tranquility <br />
+        Meet As-salaam
+      </h1>
+
+      <!-- Clients -->
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-dark-gray">Our Client</span>
+        <div class="flex -space-x-2">
+          <img
+            src="https://i.pravatar.cc/40?img=1"
+            class="w-8 h-8 rounded-full border-2 border-white"
+          />
+          <img
+            src="https://i.pravatar.cc/40?img=2"
+            class="w-8 h-8 rounded-full border-2 border-white"
+          />
+          <img
+            src="https://i.pravatar.cc/40?img=3"
+            class="w-8 h-8 rounded-full border-2 border-white"
+          />
+          <img
+            src="https://i.pravatar.cc/40?img=4"
+            class="w-8 h-8 rounded-full border-2 border-white"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Box -->
+    <div
+      class="bg-white rounded-2xl shadow-lg mt-8 p-4 flex flex-wrap md:flex-nowrap items-center gap-4 justify-between"
+    >
+      <!-- Location -->
+      <div class="flex flex-col text-left">
+        <span class="text-dark-teal text-sm font-semibold">Location</span>
+        <span class="text-sm text-dark-gray">Select your location</span>
+      </div>
+
+      <!-- Check in -->
+      <div class="flex flex-col text-left">
+        <span class="text-dark-teal text-sm font-semibold">Check in</span>
+        <span class="text-sm text-dark-gray">Select your Date</span>
+      </div>
+
+      <!-- Check out -->
+      <div class="flex flex-col text-left">
+        <span class="text-dark-teal text-sm font-semibold">Check out</span>
+        <span class="text-sm text-dark-gray">Select your Date</span>
+      </div>
+
+      <!-- Guest -->
+      <div class="flex flex-col text-left">
+        <span class="text-dark-teal text-sm font-semibold">Guest</span>
+        <span class="text-sm text-dark-gray">1 Guest</span>
+      </div>
+
+      <!-- Button -->
+      <button
+        class="bg-dark-teal cursor-pointer text-white px-5 py-3 rounded-xl hover:opacity-90 transition"
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Image -->
+  <div class="mt-8 max-w-[1800px] mx-auto bg-beige relative group">
+    <div class="overflow-hidden rounded-2xl max-w-[1600px] mx-auto">
+      <img
+        [src]="images[currentIndex]"
+        alt="villa"
+        class="rounded-2xl w-full object-cover transition-all duration-700"
+      />
+    </div>
+
+    <!-- Left Button -->
+    <button
+      (click)="prevImage()"
+      class="cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center bg-white/70 hover:bg-white rounded-full shadow opacity-0 -translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+    >
+      <i class="fa-solid fa-chevron-left text-2xl"></i>
+    </button>
+
+    <!-- Right Button -->
+    <button
+      (click)="nextImage()"
+      class="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center bg-white/70 hover:bg-white rounded-full shadow opacity-0 translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+    >
+      <i class="fa-solid fa-chevron-right text-2xl"></i>
+    </button>
+  </div>
+
+  <div class="flex justify-center gap-2 mt-4">
+    <span
+      *ngFor="let img of images; let i = index"
+      (click)="goToImage(i)"
+      class="w-3 h-3 rounded-full cursor-pointer transition-all"
+      [ngClass]="{
+        'bg-dark-teal scale-110': currentIndex === i,
+        'bg-gray-300': currentIndex !== i,
+      }"
+    ></span>
+  </div>
+</section>

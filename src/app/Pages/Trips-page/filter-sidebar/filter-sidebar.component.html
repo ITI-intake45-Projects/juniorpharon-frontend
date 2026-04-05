@@ -1,0 +1,80 @@
+<!-- Button to toggle filter on mobile -->
+<div class="md:hidden mb-4">
+  <button
+    (click)="toggleFilter()"
+    class="w-full bg-dark-teal text-white font-semibold p-3 rounded-lg hover:bg-burnt-orange transition-all duration-300"
+  >
+    {{ showFilter ? 'Hide Filters' : 'Show Filters' }}
+  </button>
+</div>
+
+<!-- Sidebar content -->
+<div
+  *ngIf="showFilter || isDesktop"
+  class="p-6 bg-white shadow-lg rounded-xl space-y-4 sticky top-6 self-start"
+>
+  <h3 class="font-bold text-xl text-dark-teal mb-4 border-b pb-2">Filter Trips</h3>
+
+  <input type="text" placeholder="Location" [(ngModel)]="location"
+         class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-dark-teal placeholder-gray-400"/>
+
+  <input type="text" placeholder="City" [(ngModel)]="city"
+         class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-dark-teal placeholder-gray-400"/>
+<div class="flex flex-col gap-2">
+  <label class="text-gray-700 font-medium">Price Range: {{ minPrice }} - {{ maxPrice }}</label>
+
+  <div class="relative w-full">
+    <!-- Min slider -->
+    <input
+      type="range"
+      [min]="0"
+      [max]="1000"
+      [(ngModel)]="minPrice"
+      (ngModelChange)="minPriceChanged()"
+      class="absolute w-full pointer-events-none appearance-none h-1 bg-gray-300 rounded"
+    />
+
+    <!-- Max slider -->
+    <input
+      type="range"
+      [min]="0"
+      [max]="1000"
+      [(ngModel)]="maxPrice"
+      (ngModelChange)="maxPriceChanged()"
+      class="absolute w-full pointer-events-none appearance-none h-1 z-19 bg-gray-300 rounded"
+    />
+
+    <!-- Custom handle styling with CSS -->
+    <style>
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #D66A2E; /* اللون اللي تحبه */
+        cursor: pointer;
+        pointer-events: auto;
+        position: relative;
+      }
+    </style>
+  </div>
+</div>
+
+  <input type="number" placeholder="Duration in Days" [(ngModel)]="durationInDays"
+         class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-dark-teal placeholder-gray-400"/>
+
+  <input type="number" placeholder="Rating" [(ngModel)]="rating"
+         class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-dark-teal placeholder-gray-400"/>
+
+  <div class="flex items-center gap-2 mt-2">
+    <input type="checkbox" [(ngModel)]="descending" id="descending"
+           class="w-4 h-4 text-dark-teal border-gray-300 rounded focus:ring-2 focus:ring-dark-teal"/>
+    <label for="descending" class="text-gray-700 font-medium">Descending Order</label>
+  </div>
+
+  <button (click)="applyFilter()"
+          class="w-full bg-dark-teal text-white font-semibold p-3 rounded-lg hover:bg-burnt-orange transition-all duration-300 shadow-md hover:shadow-lg">
+    Apply Filters
+  </button>
+</div>

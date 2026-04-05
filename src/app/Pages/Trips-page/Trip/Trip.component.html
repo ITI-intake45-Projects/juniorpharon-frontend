@@ -1,0 +1,19 @@
+<app-Navbar></app-Navbar>
+
+<div class="flex flex-col md:flex-row p-6 gap-6">
+
+  <!-- Sidebar -->
+  <div class="w-full md:w-1/4">
+    <app-filter-sidebar (filterApplied)="loadTrips($event)"></app-filter-sidebar>
+  </div>
+
+  <!-- Trips Grid -->
+  <div class="flex-1">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <app-trip-card *ngFor="let trip of trips" [trip]="trip"></app-trip-card>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

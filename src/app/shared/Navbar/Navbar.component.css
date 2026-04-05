@@ -1,0 +1,13 @@
+/* الخط يظهر عند ال route الحالي */
+.active-link + svg {
+  opacity: 1 !important;
+}
+/* يظهر الخط عند active route */
+li a.active-link + svg {
+  opacity: 1;
+}
+
+/* لو عايز الخط ينزل أكتر */
+svg {
+  bottom: -6px; /* بدل -4px */
+}

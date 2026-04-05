@@ -1,0 +1,42 @@
+<section class="bg-light-gold py-16 px-4 ">
+  <div class="max-w-7xl mx-auto text-center">
+    <!-- Title -->
+    <h2 class="text-3xl md:text-4xl font-bold text-burnt-orange mb-4">
+      Resort for every kind of dream vacation
+    </h2>
+
+    <!-- Description -->
+    <p class="text-dark-gray max-w-2xl mx-auto mb-10">
+      There are many different types of dream vacations, from relaxing beach
+      getaways to thrilling adventure trips. Here are some resorts that cater to
+      a variety of vacation.
+    </p>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div
+        *ngFor="let resort of displayedResorts"
+        class="bg-dark-teal rounded-2xl p-4 text-left cursor-pointer transform transition duration-300 hover:scale-105"
+      >
+        <img
+          [src]="resort.image"
+          class="rounded-xl w-full h-70 object-cover mb-3"
+        />
+        <h3 class="text-white font-semibold">{{ resort.name }}</h3>
+        <span class="text-sm text-gray-200">{{ resort.count }} Resort</span>
+      </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button
+      *ngIf="resorts.length > 4"
+      (click)="toggleResorts()"
+      class="cursor-pointer mt-10 bg-burnt-orange text-white px-6 py-3 rounded-xl hover:opacity-90 transition"
+    >
+      {{ showAll ? "Less" : "Explore More Resorts" }}
+      <span *ngIf="showAll">↑</span>
+    </button>
+  </div>
+
+
+</section>

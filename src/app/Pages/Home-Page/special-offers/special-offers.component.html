@@ -1,0 +1,84 @@
+<section class="bg-dark-teal py-16 px-6 text-white relative overflow-hidden">
+
+  <div class="absolute top-0 left-0 w-full overflow-hidden z-10">
+    <div class="flex w-full">
+      <div
+        *ngFor="let i of [].constructor(50)"
+        class="w-12 h-12 bg-light-gold rounded-full -mt-6"
+      ></div>
+    </div>
+  </div>
+
+
+  <div class="max-w-7xl mx-auto">
+    <!-- Main Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-semibold leading-tight">
+        For every vacation you seek, we have the perfect resort
+      </h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div
+        *ngFor="let section of resortSections"
+        class="bg-beige rounded-2xl overflow-hidden transition-all duration-500 group hover:-translate-y-2"
+      >
+        <!-- Image -->
+        <div class="relative h-72 overflow-hidden">
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"
+          ></div>
+
+          <img
+            [src]="section.image"
+            [alt]="section.title"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="p-8 flex flex-col justify-between h-[260px]">
+          <div>
+            <h3 class="text-2xl font-semibold text-dark-teal mb-4">
+              {{ section.title }}
+            </h3>
+
+            <p class="text-dark-gray leading-relaxed mb-6">
+              {{ section.description }}
+            </p>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3">
+            <!-- Primary Button -->
+            <button
+              (click)="onBook(section)"
+              class="cursor-pointer flex-1 bg-light-gold hover:bg-burnt-orange hover:text-white text-burnt-orange border-burnt-orange border-2 font-medium py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              {{ section.buttonText }}
+            </button>
+
+            <!-- Secondary Button -->
+            <button
+              (click)="onDetails(section)"
+              class="cursor-pointer flex-1 border-2 border-dark-teal text-dark-teal hover:bg-dark-teal hover:text-white font-medium py-3 px-6 rounded-xl transition-all duration-300"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden z-10">
+    <div class="flex w-full">
+      <div
+        *ngFor="let i of [].constructor(50)"
+        class="w-12 h-12 bg-beige rounded-full mb-[-24px]"
+      ></div>
+    </div>
+  </div>
+</section>

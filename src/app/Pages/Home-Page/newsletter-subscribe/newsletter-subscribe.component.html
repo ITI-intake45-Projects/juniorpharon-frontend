@@ -1,0 +1,78 @@
+<section class="bg-[#d07743] py-16 relative overflow-hidden">
+  <!-- Decorative Background Elements -->
+  <!-- في بداية الـ section -->
+  <!-- <div class="h-6 bg-[#FFF6EC] rounded-t-[50%]"></div> -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden z-10">
+    <div class="flex w-full">
+      <div
+        *ngFor="let i of [].constructor(50)"
+        class="w-12 h-12 bg-[#FFF6EC] rounded-full -mt-6"
+      ></div>
+    </div>
+  </div>
+  <div class="absolute left-8 top-8 w-32 opacity-20">
+    <img
+      src="https://via.placeholder.com/150/ffffff/transparent?text=🌴"
+      alt="palm"
+      class="w-full"
+    />
+  </div>
+
+  <div class="absolute right-12 bottom-6 w-28 opacity-20">
+    <img
+      src="https://via.placeholder.com/120/ffffff/transparent?text=☀️"
+      alt="sun"
+      class="w-full"
+    />
+  </div>
+
+  <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
+    <!-- Title -->
+    <h2
+      class="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight"
+    >
+      {{ subscribeData.title }}
+    </h2>
+
+    <!-- Subtitle -->
+    <p
+      class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+    >
+      {{ subscribeData.subtitle }}
+    </p>
+
+    <!-- Subscribe Form -->
+    <div class="max-w-md mx-auto">
+      <form (submit)="onSubscribe()" class="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          [placeholder]="subscribeData.placeholder"
+          class="flex-1 px-6 py-4 rounded-2xl text-gray-800 focus:outline-none focus:ring-4 focus:ring-[#008185]/30 bg-white placeholder:text-gray-400 text-base"
+          required
+        />
+
+        <button
+          type="submit"
+          class="cursor-pointer bg-[#008185] hover:bg-[#006b70] transition-all duration-300 text-white font-semibold px-10 py-4 rounded-2xl text-lg shadow-lg hover:shadow-xl whitespace-nowrap"
+        >
+          {{ subscribeData.buttonText }}
+        </button>
+      </form>
+    </div>
+
+    <p class="text-white/70 text-sm mt-6">
+      You will receive promotions and special offers via email
+    </p>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden z-10">
+    <div class="flex w-full">
+      <div
+        *ngFor="let i of [].constructor(50)"
+        class="w-12 h-12 bg-[#FFF6EC] rounded-full mb-[-24px]"
+      ></div>
+    </div>
+  </div>
+</section>
